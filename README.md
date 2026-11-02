@@ -80,6 +80,21 @@ readings are not promotion evidence:
   [+0.8, +7.4]. Both still sit near −2.5 pp. Either one needs a fresh locked test, and
   the two have not been run together.
 
+**Learning vs retention at the final update.** Each method's mean over seeds (large
+points) and its individual seeds (small points).
+
+![Change in skill A against skill B learned at the final update, for each method](docs/figures/learning_vs_retention.png)
+
+**Early training loss.** SVD initialization against its Kaiming pair, on the same data
+order. The gap closes by about update 40.
+
+![Training loss over the first 60 updates, SVD initialization against Kaiming](docs/figures/early_training_loss.png)
+
+**How concentrated the skill-B gradient is.** The share of gradient energy in the top
+singular directions, against a random subspace of the same size.
+
+![Share of skill-B gradient energy captured by the top singular directions, per seed](docs/figures/gradient_concentration.png)
+
 ## Verified
 
 - **Locally:** the full test suite, including a slow test that runs the whole study

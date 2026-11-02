@@ -3,6 +3,7 @@
 
 !/configs/
 !/docs/
+!/docs/figures/
 !/notebooks/
 !/notebooks_2/
 !/notebooks_2/configs/
@@ -24,6 +25,9 @@
 !/configs/protection.yaml
 !/configs/train.yaml
 !/docs/dora_protocol.md
+!/docs/figures/early_training_loss.png
+!/docs/figures/gradient_concentration.png
+!/docs/figures/learning_vs_retention.png
 !/notebooks/NB0_check.ipynb
 !/notebooks/NB1_download.ipynb
 !/notebooks/NB2_data_and_pilot.ipynb
