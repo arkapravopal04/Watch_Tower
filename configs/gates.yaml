@@ -1,0 +1,4 @@
+# Pilot targets. Freeze after precision/power checks and before locked access.
+learn_pp: 5.0
+retain_pp: -2.0
+general_pp: -2.0

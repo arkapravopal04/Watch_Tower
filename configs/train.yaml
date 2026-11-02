@@ -1,0 +1,14 @@
+# DoRA training for every stage. Stage-B methods share it exactly (paired);
+# joint A+B training doubles token_budget in code (the combined A plus B budget).
+adapter: dora
+rank: 8
+alpha: 16
+seed: 0
+epochs: 2
+microbatch: 1
+accumulation: 16
+learning_rate: 0.0001
+weight_decay: 0.0
+max_grad_norm: 1.0
+token_budget: 1000000
+fp16: true

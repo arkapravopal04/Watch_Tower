@@ -1,0 +1,8 @@
+# Bank sizes per skill (Kaggle version). pcl.kaggle.make_banks
+# builds the development banks; pcl.kaggle.seal_banks later regenerates the
+# identical train/dev files plus the locked tests from the sizes recorded then.
+seed: 0
+skills:
+  A: {train: 2000, dev: 500, memory: 256, dev_subset: 200, test: 1000, test_hard: 200}
+  B: {train: 2000, dev: 500, memory: 256, dev_subset: 200, test: 1000, test_hard: 200}
+  general: {train: 0, dev: 500, memory: 0, dev_subset: 200, test: 500, test_hard: 0}

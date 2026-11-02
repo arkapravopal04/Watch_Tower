@@ -1,0 +1,10 @@
+# Tier-3 arm protected_k256: the same capture as configs/protection.yaml (same
+# memory tokens and sampling seed), but up to 256 directions per layer and a 99%
+# energy target. The main study's cap of 128 bound in 68 (seed 0) and 70 (seed 1)
+# of 72 layers, at a median captured energy of about 90% instead of the 95% target.
+target_energy: 0.99
+max_k: 256
+rank_tolerance: 0.0000001
+negative_tolerance: 0.000001
+max_tokens: 16384
+memory_seed: 0

@@ -1,0 +1,31 @@
+# Follow-up round (notebooks_2). Fixed before any follow-up run; see notebooks_2/README.md.
+#
+# Dev scoring: the main study scored every 35 updates (7 times per run, ~25 min
+# each). Learning is front-loaded (B goes ~16% -> ~40% by update 35) and every
+# main-study curve is monotone after that (e.g. protected A 28.5 -> 27.5 -> 26.0
+# at 35 -> 105 -> 221), so the follow-up scores only at update 35 (early) and the
+# final update. The main study scored these same updates, so the reused baselines
+# are compared on this grid. Update 0 is copied from the main study (same model),
+# not rescored. [35, 105] restores the mid-run point for +25 min per run.
+score_at: [35]
+# Leave this much session time for one dev-scoring pass (~25 min measured) plus writing outputs.
+reserve_seconds: 2400
+# Start a work item only with at least this much session left. Runs resume exactly in the next
+# session, so a partly trained item is not wasted; this only avoids starting with no useful time.
+min_item_seconds: 3600
+# Gradient checkpointing only recomputes activations. "auto" turns it off when a
+# forward/backward probe on the longest example fits in 82% of GPU memory.
+gradient_checkpointing: auto
+# Replication check: the first updates of the main study's protected run (seed 0)
+# rerun through this driver must match its training losses to this relative tolerance.
+replication_updates: 6
+replication_tolerance: 0.001
+# Gradient sample for the spectrum and the SVD bases: not a setting. It is exactly the
+# run's first update (16 examples), because the Lean theorems are about one plain step
+# on the loss whose gradient is G. A run refuses SVD bases built from other examples.
+# Rule fixed before any SVD-initialized run (pclx.spectrum.go_no_go): run the SVD
+# arms only if the median top-8 share of the projected B gradient is at least
+# 10x a random 8-dim subspace's, and the predicted AdamW first-step speed-up >= 1.2x.
+go_no_go:
+  min_capture_ratio: 10.0
+  min_adam_speedup: 1.2

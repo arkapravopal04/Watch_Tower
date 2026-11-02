@@ -1,0 +1,13 @@
+# The pinned model (`pcl download` fetches exactly this revision) and the study
+# protocol: FP16 base weights on a T4 with FP32 adapter maths, greedy decoding.
+# Notebooks fill in `path` and `snapshot_manifest` for the attached Dataset.
+model_id: Qwen/Qwen3-4B-Instruct-2507
+revision: f50518eb58dfc750271b273fc113bdfc16ec2280
+path: /kaggle/input/qwen3-4b-instruct-2507-pinned
+snapshot_manifest: /kaggle/input/qwen3-4b-instruct-2507-pinned/snapshot_manifest.json
+precision: fp16
+device: cuda
+backend: sdpa
+max_length: 512
+max_new_tokens: 512   # room for the untouched model to finish its working (trained answers stop far earlier)
+max_context: 1024
